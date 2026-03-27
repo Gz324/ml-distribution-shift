@@ -12,3 +12,6 @@ This project studies how model size and dataset size affect generalization in de
 
 ```bash
 pip install -r requirements.txt
+
+# ml-scaling-laws
+>>>>>>> 4c089d7c15ed67552dc760c70218a6de8226b4b5
