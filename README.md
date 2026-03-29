@@ -1,17 +1,50 @@
-# Scaling Laws in Deep Learning
+# Distribution Shift and Spurious Correlations in Deep Learning
 
-This project studies how model size and dataset size affect generalization in deep learning models.
+This project investigates how deep learning models can learn spurious correlations instead of meaningful features, leading to failures under distribution shift.
 
-## Overview
-- Trains CNN models with different widths (16, 32, 64)
-- Uses varying dataset sizes (1K, 5K, 10K samples)
-- Compares training vs test accuracy
-- Analyzes overfitting and generalization gap
+---
 
-## Setup
+## Motivation
+
+High accuracy on training data does not always reflect true understanding.  
+Models often exploit shortcuts present in the data, which can break when the data distribution changes.
+
+This project explores how such behavior emerges and how it depends on both **bias strength** and **model capacity**.
+
+---
+
+## Methodology
+
+- Introduced synthetic bias into CIFAR-10 training data  
+- Controlled bias strength: **0.0, 0.2, 0.5, 1.0**  
+- Trained two models:
+  - Small CNN  
+  - Larger CNN  
+- Evaluated performance on unbiased test data  
+
+---
+
+## Results
+
+- Increasing bias strength leads to a clear drop in test accuracy  
+- Models rely on spurious correlations (color bias)  
+- Larger models show higher sensitivity to bias  
+
+### Visualization
+
+![Results](final_shift_results.png)
+
+---
+
+## Key Insight
+
+Models can achieve high performance for the wrong reasons.  
+Understanding distribution shift is essential for building reliable AI systems.
+
+---
+
+## Run
 
 ```bash
-pip install -r requirements.txt
-
-# ml-scaling-laws
->>>>>>> 4c089d7c15ed67552dc760c70218a6de8226b4b5
+pip install torch torchvision numpy matplotlib
+python3 shift_full.py
