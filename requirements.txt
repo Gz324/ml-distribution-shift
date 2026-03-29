@@ -1,7 +1,0 @@
-numpy
-pandas
-matplotlib
-networkx
-scikit-learn
-causal-learn
-dowhy
